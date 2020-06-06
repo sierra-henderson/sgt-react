@@ -11,6 +11,7 @@ export default class GradeForm extends React.Component {
     this.handleNewName = this.handleNewName.bind(this);
     this.handleNewCourse = this.handleNewCourse.bind(this);
     this.handleNewGrade = this.handleNewGrade.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleNewName() {
@@ -31,9 +32,33 @@ export default class GradeForm extends React.Component {
     });
   }
 
+  handleSubmit(event) {
+    event.preventDefault();
+    const newGrade = {
+      name: this.state.name,
+      course: this.state.course,
+      grade: this.state.grade
+    };
+    this.props.onSubmit(newGrade);
+    this.setState({
+      name: '',
+      course: '',
+      grade: ''
+    });
+  }
+
+  handleReset() {
+    event.preventDefault();
+    this.setState({
+      name: '',
+      course: '',
+      grade: ''
+    });
+  }
+
   render() {
     return (
-      <form>
+      <form onSubmit={this.handleSubmit} onReset={this.handleReset}>
         <div className="input-group">
           <div className="input-group-prepend">
             <div className="input-group-text">@</div>
