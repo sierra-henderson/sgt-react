@@ -1,6 +1,15 @@
 import React from 'react';
 
 export default class GradeForm extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: '',
+      course: '',
+      grade: ''
+    };
+  }
+
   render() {
     return (
       <form>
