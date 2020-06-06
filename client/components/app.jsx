@@ -1,8 +1,23 @@
 import React from 'react';
 
-class App extends React.Component {
+class Header extends React.Component {
   render() {
-    return null;
+    return <h1>Student Grade Table</h1>;
+  }
+}
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      grades: []
+    };
+  }
+
+  render() {
+    return (
+      <Header />
+    );
   }
 }
 
