@@ -20,6 +20,29 @@ class Grade extends React.Component {
   }
 }
 
+class GradeTable extends React.Component {
+  render() {
+    return (
+      <table className="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Course</th>
+            <th scope="col">Grade</th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            this.props.grades.map(grade => {
+              return <Grade key={grade.id} grade={grade}/>;
+            })
+          }
+        </tbody>
+      </table>
+    );
+  }
+}
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -40,7 +63,10 @@ class App extends React.Component {
 
   render() {
     return (
-      <Header />
+      <div className="container">
+        <Header />
+        <GradeTable grades={this.state.grades} />
+      </div>
     );
   }
 }
