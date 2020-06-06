@@ -1,3 +1,5 @@
+/* eslint-disable no-console, no-unused-vars */
+
 import React from 'react';
 
 class Header extends React.Component {
@@ -12,6 +14,12 @@ class App extends React.Component {
     this.state = {
       grades: []
     };
+  }
+
+  componentDidMount() {
+    fetch('/api/grades')
+      .then(response => response.json())
+      .then(data => console.log(data));
   }
 
   render() {
