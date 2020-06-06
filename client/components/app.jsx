@@ -23,6 +23,22 @@ class App extends React.Component {
       });
   }
 
+  addNewGrade(newGrade) {
+    fetch('/api/grades', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newGrade)
+    })
+      .then(response => response.json())
+      .then(data => {
+        this.setState({
+          grades: this.state.grades.concat([data])
+        });
+      });
+  }
+
   getAverageGrade() {
     if (this.state.grades.length > 0) {
       let total = 0;
