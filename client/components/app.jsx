@@ -8,6 +8,18 @@ class Header extends React.Component {
   }
 }
 
+class Grade extends React.Component {
+  render() {
+    return (
+      <tr>
+        <td>{this.props.grade.name}</td>
+        <td>{this.props.grade.course}</td>
+        <td>{this.props.grade.grade}</td>
+      </tr>
+    );
+  }
+}
+
 class App extends React.Component {
   constructor(props) {
     super(props);
@@ -19,7 +31,11 @@ class App extends React.Component {
   componentDidMount() {
     fetch('/api/grades')
       .then(response => response.json())
-      .then(data => console.log(data));
+      .then(data => {
+        this.setState({
+          grades: data
+        });
+      });
   }
 
   render() {
