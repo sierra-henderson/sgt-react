@@ -19,58 +19,10 @@
       "grade": 100
     },
     {
-      "name": "Sally Mander",
+      "name": "Daisy Jackson",
       "course": "Web Development",
-      "grade": 85,
+      "grade": 87,
       "id": 33
-    },
-    {
-      "name": "Daisy",
-      "course": "React",
-      "grade": 80,
-      "id": 34
-    },
-    {
-      "name": "Ada Lovelace",
-      "course": "Computer Science",
-      "grade": 100,
-      "id": 35
-    },
-    {
-      "name": "Bob",
-      "course": "CSS",
-      "grade": 70,
-      "id": 36
-    },
-    {
-      "name": "Sierra Henderson",
-      "course": "JavaScript",
-      "grade": 90,
-      "id": 37
-    },
-    {
-      "name": "Joe",
-      "course": "Node",
-      "grade": 67,
-      "id": 38
-    },
-    {
-      "name": "Kyle Anderson",
-      "course": "Web Development",
-      "grade": 78,
-      "id": 39
-    },
-    {
-      "name": "Sierra Henderson",
-      "course": "CSS",
-      "grade": 90,
-      "id": 40
-    },
-    {
-      "name": "Lisa Simpson",
-      "course": "Computer Science",
-      "grade": 100,
-      "id": 41
     }
   ]
 }
