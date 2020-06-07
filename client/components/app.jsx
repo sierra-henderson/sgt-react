@@ -3,6 +3,7 @@
 import React from 'react';
 import Header from './header';
 import GradeTable from './gradeTable';
+import GradeForm from './gradeForm';
 
 class App extends React.Component {
   constructor(props) {
@@ -11,6 +12,7 @@ class App extends React.Component {
       grades: []
     };
     this.getAverageGrade = this.getAverageGrade.bind(this);
+    this.addNewGrade = this.addNewGrade.bind(this);
   }
 
   componentDidMount() {
@@ -36,6 +38,7 @@ class App extends React.Component {
         this.setState({
           grades: this.state.grades.concat([data])
         });
+        console.log(this.state.grades);
       });
   }
 
@@ -54,7 +57,15 @@ class App extends React.Component {
     return (
       <div className="container">
         <Header average={averageGrade}/>
-        <GradeTable grades={this.state.grades} />
+        <div className="row mt-4">
+          <div className="col-md-8">
+            <GradeTable grades={this.state.grades} />
+          </div>
+          <div className="col-md-4">
+            <h3 className="mb-4">Add Grade</h3>
+            <GradeForm onSubmit={this.addNewGrade} />
+          </div>
+        </div>
       </div>
     );
   }
