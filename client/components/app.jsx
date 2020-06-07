@@ -26,6 +26,16 @@ class App extends React.Component {
       });
   }
 
+  componentDidUpdate() {
+    fetch('/api/grades')
+      .then(response => response.json())
+      .then(data => {
+        this.setState({
+          grades: data
+        });
+      });
+  }
+
   addNewGrade(newGrade) {
     fetch('/api/grades', {
       method: 'POST',
@@ -39,7 +49,6 @@ class App extends React.Component {
         this.setState({
           grades: this.state.grades.concat([data])
         });
-        console.log(this.state.grades);
       });
   }
 
@@ -50,6 +59,8 @@ class App extends React.Component {
         total += this.state.grades[i].grade;
       }
       return Math.ceil(total / this.state.grades.length);
+    } else {
+      return 'N/A';
     }
   }
 
