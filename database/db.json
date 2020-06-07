@@ -71,12 +71,6 @@
       "course": "Computer Science",
       "grade": 100,
       "id": 41
-    },
-    {
-      "name": "Bob Bobberson",
-      "course": "Web Development",
-      "grade": 80,
-      "id": 42
     }
   ]
 }
