@@ -13,6 +13,7 @@ class App extends React.Component {
     };
     this.getAverageGrade = this.getAverageGrade.bind(this);
     this.addNewGrade = this.addNewGrade.bind(this);
+    this.deleteGrade = this.deleteGrade.bind(this);
   }
 
   componentDidMount() {
@@ -73,7 +74,7 @@ class App extends React.Component {
         <Header average={averageGrade}/>
         <div className="row mt-4">
           <div className="col-md-8">
-            <GradeTable grades={this.state.grades} />
+            <GradeTable deleteGrade={this.deleteGrade} grades={this.state.grades} />
           </div>
           <div className="col-md-4">
             <h3 className="mb-4">Add Grade</h3>
