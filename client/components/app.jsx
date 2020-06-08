@@ -13,6 +13,7 @@ class App extends React.Component {
     };
     this.getAverageGrade = this.getAverageGrade.bind(this);
     this.addNewGrade = this.addNewGrade.bind(this);
+    this.deleteGrade = this.deleteGrade.bind(this);
   }
 
   componentDidMount() {
@@ -38,7 +39,6 @@ class App extends React.Component {
         this.setState({
           grades: this.state.grades.concat([data])
         });
-        console.log(this.state.grades);
       });
   }
 
@@ -49,7 +49,24 @@ class App extends React.Component {
         total += this.state.grades[i].grade;
       }
       return Math.ceil(total / this.state.grades.length);
+    } else {
+      return 'N/A';
     }
+  }
+
+  deleteGrade(id) {
+    fetch(`/api/grades/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+      .then(response => response.json())
+      .then(data => {
+        this.setState({
+          grades: this.state.grades.filter(el => el.id !== id)
+        });
+      });
   }
 
   render() {
@@ -59,7 +76,7 @@ class App extends React.Component {
         <Header average={averageGrade}/>
         <div className="row mt-4">
           <div className="col-md-8">
-            <GradeTable grades={this.state.grades} />
+            <GradeTable deleteGrade={this.deleteGrade} grades={this.state.grades} />
           </div>
           <div className="col-md-4">
             <h3 className="mb-4">Add Grade</h3>
