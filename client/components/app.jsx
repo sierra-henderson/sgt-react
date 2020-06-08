@@ -26,16 +26,6 @@ class App extends React.Component {
       });
   }
 
-  componentDidUpdate() {
-    fetch('/api/grades')
-      .then(response => response.json())
-      .then(data => {
-        this.setState({
-          grades: data
-        });
-      });
-  }
-
   addNewGrade(newGrade) {
     fetch('/api/grades', {
       method: 'POST',
@@ -71,7 +61,8 @@ class App extends React.Component {
         'Content-Type': 'application/json'
       }
     })
-      .then(id => {
+      .then(response => response.json())
+      .then(data => {
         this.setState({
           grades: this.state.grades.filter(el => el.id !== id)
         });
